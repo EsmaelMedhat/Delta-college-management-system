@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1705310537 source:e:\cs_50\new folder\delta app\main.cpp
+	"iostream"
+	<employee.h>
+	<vector>
+	<student.h>
+	<windows.h>
+
+1704467675 source:e:\cs_50\new folder\delta app\src\person.cpp
+	"person.h"
+	<string>
+
+1704467672 e:\cs_50\new folder\delta app\include\person.h
+	<iostream>
+	<windows.h>
+	<string>
+
+1705307245 source:e:\cs_50\new folder\delta app\src\student.cpp
+	"student.h"
+	<string>
+	"iostream"
+
+1704391951 e:\cs_50\new folder\delta app\include\student.h
+	<person.h>
+	<windows.h>
+
+1704320409 source:e:\cs_50\new folder\delta app\src\empolyee.cpp
+	"empolyee.h"
+
+1704320408 e:\cs_50\new folder\delta app\include\empolyee.h
+	<person.h>
+
+1704467673 e:\cs_50\new folder\delta app\include\employee.h
+	<person.h>
+	<windows.h>
+
+1704391951 source:e:\cs_50\new folder\delta app\src\employee.cpp
+	"employee.h"
+	<string>
+	"iostream"
+
