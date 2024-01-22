@@ -4,7 +4,7 @@
 
 using namespace std;
 employee::employee()
-{
+{subject="undefined";
 
 }
  employee::employee(string nme,int ge,string adess,string emil,string pasword,string jo):person( nme, ge, adess, emil, pasword)
@@ -26,7 +26,8 @@ int salary2=stoi(salary);
 salary=to_string(salary2);
    }
 }
-
+void employee::set_subject(string subject){this->subject=subject;}
+  string employee::get_subject(){return subject;}
      void employee::set_job(string job)
     {
         this->job=job;

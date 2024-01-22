@@ -8,10 +8,13 @@ class employee : public person
     string salary="";
     string job;
        int bonus=0;
+       string subject;
         public:
      void set_job(string job);
      void set_salary();
      void set_bonus();
+         void set_subject(string subject);
+string get_subject();
      string get_salary();
           string get_job();
 
