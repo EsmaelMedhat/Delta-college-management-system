@@ -8,7 +8,7 @@ employee::employee()
 
 }
  employee::employee(string nme,int ge,string adess,string emil,string pasword,string jo):person( nme, ge, adess, emil, pasword)
-{
+{subject="undefined";
    this->job=jo;
 if(job=="Doctor")
 salary="9000";
@@ -19,12 +19,6 @@ salary="3000";
 else{
  salary="unknown";
 }
-int salary2=stoi(salary);
-   if(ge>35){
-   bonus=0.20*salary2;
-     salary2+=bonus;
-salary=to_string(salary2);
-   }
 }
 void employee::set_subject(string subject){this->subject=subject;}
   string employee::get_subject(){return subject;}
@@ -32,7 +26,7 @@ void employee::set_subject(string subject){this->subject=subject;}
     {
         this->job=job;
     }
-     void employee::set_salary(){
+     void employee::set_salary(string job){
      if(job=="Doctor")
 salary="9000";
 else if(job=="Teaching assistant")
@@ -49,6 +43,7 @@ else{
    if(get_age()>35){
    bonus=0.20*salary2;
    }
+     else{bonus=0;}
      }
           string employee::get_salary(){
      int salary2=stoi(salary);
@@ -61,4 +56,5 @@ void employee::print(){
 person::print();
 cout<<"                                Job :"<<job;
 cout<<endl<<"\n  Salary :"<<salary;
+cout<<"                                subject :"<<subject<<endl;
 }

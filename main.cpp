@@ -15,6 +15,7 @@ string student_user;
 void run();
 void tomenu_as_doctor();
 void tomenu_as_student();
+void tomenu_as_owner();
 int exit(){
 return 0;}
 void Def(){
@@ -404,7 +405,7 @@ else{system("cls");student_run();}
 if(stoi(choice)>0&&stoi(choice)<5)
 {
 system("cls");
-doctor_run();}
+student_run();}
 else{
 char check;
 cout<<"\nAre your sure to exit?\n";
@@ -420,6 +421,138 @@ else{
 student_run();
 }
  }
+void adds_employee(employee employeemodel){
+string name,adress,email,password,job,subject,check8;
+    int age;
+    cout<<"\n  name : \n";
+cin.ignore(1,'\n');
+getline(cin,name);
+cout<<"      age  :\n";
+cin>>age;
+cin.ignore(1,'\n');
+cout<<"   adress  :\n";
+getline(cin,adress);
+cout<<"    email  :\n";
+getline(cin,email);
+cout<<" password  :\n";
+getline(cin,password);
+cout<<"   job  :\n";
+getline(cin,job);
+cout<<" subject  :\n";
+getline(cin,subject);
+employeemodel.set_name(name);
+employeemodel.set_age(age);
+employeemodel.set_adress(adress);
+employeemodel.set_email(email);
+employeemodel.set_password(password);
+employeemodel.set_job(job);
+employeemodel.set_salary(job);
+employeemodel.set_subject(subject);
+cout<<"Are you sure to Adding or not ?\n";
+cout<<"1:Yes   or  Any num to NO \n";
+cin>>check8;
+if(check8=="1")
+employees.push_back(employeemodel);
+}
+void add_employee(){
+all_menu();
+string check;employee model;
+cout<<"\n1:Specific number of employee          2:not\n";
+cout<<"youe choice :";
+cin>>check;
+if(check=="1")
+{
+int num2=0;
+string num;int check2=0;
+cout<<"enter employee number you want to register ?\n";
+cin>>num;
+system("cls");
+all_menu();
+cout<<"                   "<<num<<"  employee \n";
+do{
+++num2;
+cout<<"employee "<<num2<<endl;
+adds_employee(model);
+}while(num2<stoi(num));
+}
+else{
+static int m=0;
+do{
+m++;
+cout<<"employee "<<m<<endl;
+ adds_employee(model);
+cout<<"1:Add again  or Any num to menu\n";
+cin>>x;
+}while(x=="1");
+}
+}
+void show_data_to_owner(){
+all_menu();
+string name,check,m="0";
+cout<<"\n1:Specific number of employee          2:show all data\n";
+cout<<"youe choice :";
+cin>>check;
+if(check=="1")
+{
+    cout<<"give me employee name\n";
+cin.ignore(1,'\n');
+getline(cin,name);
+for(int i=0;i<employees.size();i++)
+{
+    if(name==employees[i].get_name())
+    {
+        employees[i].print();
+    break;
+    }
+   else{
+    if(i==employees.size()-1)
+    {
+    {       cout<<"\nloading";
+for(int h=0;h<4;h++)
+{cout<<'.';Sleep(100);}
+            cout<<"\nNot found\n";
+    cout<<"1:Retry  any num to exit\n";
+    cout<<"your choice :";
+    cin>>m;
+
+    }
+   if(m=="1")
+    {
+        system("cls");
+    show_data_to_owner();
+    }
+    else{
+        cout<<exit();
+  }
+
+ }
+}
+}
+}
+else{
+           cout<<"\nloading";
+for(int h=0;h<4;h++)
+{cout<<'.';Sleep(100);}
+system("cls");
+all_menu();
+for(int i=0;i<employees.size();i++)
+    {
+       cout<<"Employee :"<<i+1<<"\n\n";
+         employees[i].print();
+          cout<<endl;
+ }
+}
+}
+void owner_page(){
+cout<<"                    "<<"Malek Elowner"<<"\n";
+all_menu();
+cout<<"\n\n";
+cout<<"     1: Registration new employee"<<endl;
+cout<<"     2: Show data and search    "<<endl;
+cout<<"     3: About faculty     "<<endl;
+cout<<"     4: Log out"<<endl;
+cout<<"Anynum: Exit     "<<endl;
+}
 void login_as_student(string email,string password){
 int m;
 for(int i=0;i<students.size();i++)
@@ -432,7 +565,7 @@ for(int h=0;h<5;h++)
 system("cls");
 student_user=students[i].get_name();
 student_run();
-break;   //student menu
+break;
 }
 else{if(i==students.size()-1)
     {
@@ -454,16 +587,89 @@ login_as_student(::email,::password);
 }
 }
 }
+void owner_run(){
+char check1;
+string choice;
+owner_page();
+cout<<"\nyour choice :";
+cin>>choice;
+if(choice=="1"){
+system("cls");
+add_employee();
+tomenu_as_owner();
+}
+if(choice=="2")
+{  system("cls");
+    show_data_to_owner();
+tomenu_as_owner();
+}
+if(choice=="3"){
+  system("cls");
+   about_faculty();
+tomenu_as_owner();
+}
+if(choice=="4"){
+char check;
+cout<<"\nAre your sure to log out?\n";
+cout<<"1:Yes   or Any num to NO \n";
+cin>>check;
+if(check=='1'){
+system("cls");
+run();}
+else{system("cls");owner_run();}
+}
+if(stoi(choice)>0&&stoi(choice)<5)
+{
+system("cls");
+owner_run();}
+else{
+char check;
+cout<<"\nAre your sure to exit?\n";
+cout<<"1:Yes   or Any num to NO \n";
+cin>>check;
+}
+if(check1=='1')
+{
+    cout<<exit();
+}
+else{
+  system("cls");
+owner_run();
+}
+
+
+
+
+}
 void login_as_owner(string email,string password)
 {
+   char check;
    if(email=="esmaelalhabiby@gmail.com"&&password=="01556080613")
     {
+   cout<<"\nloading";
+for(int h=0;h<5;h++)
+{cout<<'.';Sleep(1000);}
+system("cls");
+owner_run();
      //owner menu
     }
     else{
-   //try again or exit
-      cout<<"there is no exist";
+   cout<<"\nloading";
+for(int h=0;h<5;h++)
+{cout<<'.';Sleep(1000);}
+      cout<<"\nNot found\n";
+    cout<<"1:Retry  any num to exit\n";
+    cout<<"your choice :";
+    cin>>check;
+
     }
+if(check=='1')
+{
+    system("cls");
+login_as_owner(::email,::password);
+}
+else{cout<<exit();}
+
 }
 void checkinput_email_password()
 {
@@ -516,6 +722,19 @@ cin>>check;
 if(check=='1')
 {    system("cls");
 student_run();
+}
+else{
+    cout<<exit();
+}
+}
+void tomenu_as_owner(){
+char check;
+cout<<"\n1 : To menu   or any num to exit\n";
+cout<<"your choice :";
+cin>>check;
+if(check=='1')
+{    system("cls");
+owner_run();
 }
 else{
     cout<<exit();

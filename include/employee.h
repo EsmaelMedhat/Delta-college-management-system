@@ -11,7 +11,7 @@ class employee : public person
        string subject;
         public:
      void set_job(string job);
-     void set_salary();
+     void set_salary(string job);
      void set_bonus();
          void set_subject(string subject);
 string get_subject();
